@@ -1,66 +1,55 @@
-<diagram program="umletino" version="14.3.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>420</x><y>210</y><w>280</w><h>190</h></coordinates><panel_attributes>Utente
+<diagram program="umletino" version="14.3.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>420</x><y>180</y><w>280</w><h>240</h></coordinates><panel_attributes>Utente
 --
 -id: Long
 -mail: String
--nomeUtente: String
+-password: String
 -telefono: Long
 -nome: String
 -cognome: String
 -nascita: Date
+-indirizzo: String
+-ruoli: String
+-immagine: Image
 --
 +creaProgetto(titolo: String)
-+aggiungiEsperienza(titolo: String, genere: String,
-ruolo: String, personaggio: String, data: Date)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>420</x><y>0</y><w>280</w><h>130</h></coordinates><panel_attributes>Parte
++aggiungiEsperienza(titolo: String, generi: String,
+ruolo: String, personaggio: String, dataInizio: Date,
+dataFine: Date)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>420</x><y>0</y><w>280</w><h>130</h></coordinates><panel_attributes>Parte
 --
 -id: Long
 -ruolo: String
 -personaggio: String
 --
 +candida(candidato: String)
-+proponi(candidato: String)
-+trasforma()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>30</x><y>510</y><w>280</w><h>130</h></coordinates><panel_attributes>Esperienza
++assegna(candidato: String)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>30</x><y>510</y><w>280</w><h>130</h></coordinates><panel_attributes>Esperienza
 --
 -id: Long
--data: Date
+-dataInizio: Date
+-dataFine: Date
 -titolo: String
--genere: String
+-generi: String
 -ruolo: String
--personaggio: String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>40</x><y>200</y><w>270</w><h>130</h></coordinates><panel_attributes>Proposta
+-personaggio: String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>800</x><y>210</y><w>360</w><h>240</h></coordinates><panel_attributes>Progetto
 --
 -id: Long
---
-+accetta()
-+rifiuta()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>850</x><y>510</y><w>280</w><h>130</h></coordinates><panel_attributes>Premio
---
--id: Long
--donazioneMinima: Integer
--descrizione: String
---
-+contaDonatori(): Integer
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>800</x><y>210</y><w>360</w><h>240</h></coordinates><panel_attributes>Progetto
---
--id: Long
--proprietario: Utente
 -titolo: String
--genere: String
+-generi: String
 -trama: String
 -locandina: Image
 -scadenza: Date
 -finanziamentoAttuale: Integer
 -finanziamentoMinimo: Integer
--stato: String
 --
 +finanzia(finanziatore:Utente, totale: Integer)
 +aggiungiParte(ruolo: String, personaggio: String)
-+aggiungiPremio(donazioneMinima: Integer, descrizione: String)
 +concludi()
 </panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>690</x><y>276</y><w>130</w><h>50</h></coordinates><panel_attributes>lt=&lt;-
 proprietario
-1..1</panel_attributes><additional_attributes>10;20;110;20</additional_attributes></element><element><id>Relation</id><coordinates><x>160</x><y>386</y><w>300</w><h>140</h></coordinates><panel_attributes>lt=&lt;-
+1..1</panel_attributes><additional_attributes>10;20;110;20</additional_attributes></element><element><id>Relation</id><coordinates><x>160</x><y>416</y><w>300</w><h>110</h></coordinates><panel_attributes>lt=&lt;-
 utente
-1..1</panel_attributes><additional_attributes>280;10;280;60;10;60;10;120</additional_attributes></element><element><id>Relation</id><coordinates><x>550</x><y>126</y><w>60</w><h>100</h></coordinates><panel_attributes>lt=&lt;-
+1..1</panel_attributes><additional_attributes>280;10;280;30;10;30;10;90</additional_attributes></element><element><id>Relation</id><coordinates><x>550</x><y>126</y><w>60</w><h>70</h></coordinates><panel_attributes>lt=&lt;-
 utente
-0..1</panel_attributes><additional_attributes>10;80;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>690</x><y>56</y><w>350</w><h>170</h></coordinates><panel_attributes>lt=&lt;-
+0..1</panel_attributes><additional_attributes>10;50;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>690</x><y>56</y><w>350</w><h>170</h></coordinates><panel_attributes>lt=&lt;-
 progetto
 1..1</panel_attributes><additional_attributes>290;150;290;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>270</x><y>46</y><w>170</w><h>50</h></coordinates><panel_attributes>lt=&lt;-
 parte
@@ -68,24 +57,15 @@ parte
 candidato
 1..1</panel_attributes><additional_attributes>410;240;10;240;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>0</y><w>280</w><h>130</h></coordinates><panel_attributes>Candidatura
 --
--id: Long
---
-+accetta()
-+rifiuta()</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>300</x><y>246</y><w>140</w><h>50</h></coordinates><panel_attributes>lt=&lt;-
-candidato
-1..1</panel_attributes><additional_attributes>120;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>150</x><y>126</y><w>360</w><h>90</h></coordinates><panel_attributes>lt=&lt;-
-parte
-1..1</panel_attributes><additional_attributes>340;10;340;50;10;50;10;70</additional_attributes></element><element><id>Relation</id><coordinates><x>550</x><y>396</y><w>80</w><h>130</h></coordinates><panel_attributes>lt=&lt;-
+-id: Long</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>550</x><y>416</y><w>80</w><h>110</h></coordinates><panel_attributes>lt=&lt;-
 donatore
-1..1</panel_attributes><additional_attributes>10;10;10;110</additional_attributes></element><element><id>Relation</id><coordinates><x>620</x><y>406</y><w>200</w><h>120</h></coordinates><panel_attributes>lt=&lt;-
+1..1</panel_attributes><additional_attributes>10;10;10;90</additional_attributes></element><element><id>Relation</id><coordinates><x>690</x><y>446</y><w>340</w><h>150</h></coordinates><panel_attributes>lt=&lt;-
 progetto
-1..1</panel_attributes><additional_attributes>180;20;10;20;10;100</additional_attributes></element><element><id>UMLClass</id><coordinates><x>420</x><y>510</y><w>280</w><h>130</h></coordinates><panel_attributes>Donazione
+1..1</panel_attributes><additional_attributes>280;10;280;130;10;130</additional_attributes></element><element><id>UMLClass</id><coordinates><x>420</x><y>510</y><w>280</w><h>130</h></coordinates><panel_attributes>Donazione
 --
 -id: Long
 -somma: Integer
 --
-+aggiungiSomma(somma: Integer)
++paga()
 +rendi()
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>970</x><y>446</y><w>70</w><h>80</h></coordinates><panel_attributes>lt=&lt;-
-progetto
-1..1</panel_attributes><additional_attributes>10;10;10;60</additional_attributes></element></diagram>
+</panel_attributes><additional_attributes></additional_attributes></element></diagram>
