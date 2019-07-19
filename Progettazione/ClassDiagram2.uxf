@@ -1,0 +1,59 @@
+<diagram program="umletino" version="14.3.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>420</x><y>220</y><w>280</w><h>190</h></coordinates><panel_attributes>Utente
+--
+-id: String
+-mail: String
+-password: String
+-nome: String
+-cognome: String
+-nascita: Date
+-nazione: String
+-ruoli: String
+-immagine: String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>420</x><y>0</y><w>280</w><h>130</h></coordinates><panel_attributes>Parte
+--
+-id: Integer
+-ruolo: String
+-personaggio: String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>30</x><y>510</y><w>280</w><h>130</h></coordinates><panel_attributes>Esperienza
+--
+-id: Integer
+-inizio: Date
+-fine: Date
+-titolo: String
+-generi: String
+-ruolo: String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>800</x><y>210</y><w>360</w><h>210</h></coordinates><panel_attributes>Progetto
+--
+-id: Integer
+-titolo: String
+-generi: String
+-trama: String
+-locandina: String
+-scadenza: Date
+-attuale: Double
+-minimo: Double
+-premi: String
+-donazioni: String
+--
++donate(somma: Double)
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>690</x><y>276</y><w>130</w><h>50</h></coordinates><panel_attributes>lt=&lt;-
+proprietario
+1..1</panel_attributes><additional_attributes>10;20;110;20</additional_attributes></element><element><id>Relation</id><coordinates><x>160</x><y>406</y><w>300</w><h>120</h></coordinates><panel_attributes>lt=&lt;-
+utente
+1..1</panel_attributes><additional_attributes>280;10;280;40;10;40;10;100</additional_attributes></element><element><id>Relation</id><coordinates><x>550</x><y>126</y><w>60</w><h>110</h></coordinates><panel_attributes>lt=&lt;-
+utente
+0..1</panel_attributes><additional_attributes>10;90;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>690</x><y>56</y><w>350</w><h>170</h></coordinates><panel_attributes>lt=&lt;-
+progetto
+1..1</panel_attributes><additional_attributes>290;150;290;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>270</x><y>46</y><w>170</w><h>50</h></coordinates><panel_attributes>lt=&lt;-
+parte
+1..1</panel_attributes><additional_attributes>150;20;10;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>0</y><w>280</w><h>130</h></coordinates><panel_attributes>Candidatura
+--
+-id: Integer</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>550</x><y>406</y><w>80</w><h>120</h></coordinates><panel_attributes>lt=&lt;-
+donatore
+1..1</panel_attributes><additional_attributes>10;10;10;100</additional_attributes></element><element><id>Relation</id><coordinates><x>690</x><y>416</y><w>340</w><h>180</h></coordinates><panel_attributes>lt=&lt;-
+progetto
+1..1</panel_attributes><additional_attributes>280;10;280;160;10;160</additional_attributes></element><element><id>UMLClass</id><coordinates><x>420</x><y>510</y><w>280</w><h>90</h></coordinates><panel_attributes>Donazione
+--
+-id: String
+-somma: Double
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>10</x><y>126</y><w>430</w><h>270</h></coordinates><panel_attributes>lt=&lt;-
+utente
+1..1</panel_attributes><additional_attributes>410;240;10;240;10;10</additional_attributes></element></diagram>
